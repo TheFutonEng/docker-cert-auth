@@ -1,0 +1,9 @@
+#cloud-config
+users:
+  - default
+  - name: ubuntu
+    gecos: ubuntu
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGerLa4ulZAm+13mW2K1/H6mg/GsVR9AqQpVSy+iiU4A docker@local

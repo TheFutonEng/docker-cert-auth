@@ -1,0 +1,7 @@
+---
+- name: Prepare the VMs to run Docker
+  hosts: docker_registry
+  # gather_facts: no
+
+  roles:
+    - docker
