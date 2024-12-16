@@ -1,1 +1,3 @@
 .ssh/
+registry.key
+registry.crt

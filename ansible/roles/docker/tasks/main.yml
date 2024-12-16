@@ -166,7 +166,7 @@
   - certs
   - image-storage
 
-- name: Copy credentials file to kit gateway
+- name: Copy credentials file to VM
   copy:
     src: files/docker-registry/creds
     dest: /home/ubuntu/docker-registry/auth/creds
@@ -179,8 +179,8 @@
     src: "{{ item }}"
     dest: "/home/ubuntu/docker-registry/certs/{{ item | basename }}"
   loop:
-  - files/docker-registry/vp.bigbang.dev.cert
-  - files/docker-registry/vp.bigbang.dev.key
+  - files/docker-registry/registry.crt
+  - files/docker-registry/registry.key
 
 - name: Ensure pip is installed
   apt:
@@ -209,7 +209,7 @@
       REGISTRY_AUTH: "htpasswd"
       REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm"
       REGISTRY_AUTH_HTPASSWD_PATH: "/auth/creds"
-      REGISTRY_HTTP_TLS_CERTIFICATE: "/certs/vp.bigbang.dev.cert"
-      REGISTRY_HTTP_TLS_KEY: "/certs/vp.bigbang.dev.key"
+      REGISTRY_HTTP_TLS_CERTIFICATE: "/certs/registry.crt"
+      REGISTRY_HTTP_TLS_KEY: "/certs/registry.key"
 
 
